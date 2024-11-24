@@ -35,8 +35,14 @@ import androidx.compose.ui.draganddrop.DragAndDropTarget
 import androidx.compose.ui.draganddrop.DragAndDropTransferData
 import androidx.compose.ui.draganddrop.mimeTypes
 import androidx.compose.foundation.Canvas
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.filled.Face
+import androidx.compose.material3.Icon
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -45,7 +51,6 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun DragAndDropBoxes(modifier: Modifier = Modifier) {
     Column(modifier = Modifier.fillMaxSize()) {
-
         Row(
             modifier = modifier
                 .fillMaxWidth().weight(0.2f)
@@ -85,12 +90,9 @@ fun DragAndDropBoxes(modifier: Modifier = Modifier) {
                         enter = scaleIn() + fadeIn(),
                         exit = scaleOut() + fadeOut()
                     ) {
-                        Text(
-                            text = "Right",
-                            fontSize = 40.sp,
-                            color = Color.Red,
-                            fontWeight = FontWeight.Bold,
-
+                        Icon(
+                            imageVector = Icons.Default.ArrowForward,
+                            contentDescription = "",
                             modifier = Modifier
                                 .fillMaxSize()
                                 .dragAndDropSource {
@@ -114,15 +116,21 @@ fun DragAndDropBoxes(modifier: Modifier = Modifier) {
         }
 
 
-        Canvas(
+        Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .weight(0.8f)
                 .background(Color.Red)
 
         ) {
-                drawCircle(Color.Green, radius = 50f, center = Offset(100f, 100f))
-       }
+//             drawCircle(Color.Green, radius = 50f, center = Offset(100f, 100f))}
+//            drawRect(color = Color.Green, topLeft = Offset(100f, 100f), size = Size(width = 200f, height = 100f))
+            Icon(
+                imageVector = Icons.Default.Face,
+                contentDescription = "",
+                modifier=Modifier.padding(5.dp)
+            )
+        }
     }
 }
 
